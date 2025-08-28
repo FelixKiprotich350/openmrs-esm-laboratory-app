@@ -127,7 +127,7 @@ const OrdersDataTable: React.FC<OrdersDataTableProps> = (props) => {
   };
 
   const tableRows = useMemo(() => {
-    return paginatedLabOrders.map((order) => ({
+    const rows = paginatedLabOrders.map((order) => ({
       id: order.patientId,
       patientName: order.orders[0]?.patient.person.display,
       orders: order.orders,
@@ -158,6 +158,8 @@ const OrdersDataTable: React.FC<OrdersDataTableProps> = (props) => {
         </div>
       ) : null,
     }));
+
+    return rows;
   }, [paginatedLabOrders, t]);
 
   if (isLoading) {

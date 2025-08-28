@@ -1,4 +1,5 @@
 import React from 'react';
+import { useExtensionStore } from '@openmrs/esm-framework';
 import OrdersDataTable from '../../components/orders-table/orders-data-table.component';
 
 const TestsOrderedTable: React.FC = () => {

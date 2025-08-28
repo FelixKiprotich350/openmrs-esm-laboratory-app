@@ -2,6 +2,7 @@ import { defineConfigSchema, getAsyncLifecycle, getSyncLifecycle } from '@openmr
 import { configSchema } from './config-schema';
 import { createHomeDashboardLink } from './components/create-dashboard-link.component';
 import rootComponent from './root.component';
+import LaboratoryDashboard from './laboratory-dashboard.component';
 
 const moduleName = '@openmrs/esm-laboratory-app';
 
@@ -13,6 +14,7 @@ const options = {
 export const importTranslation = require.context('../translations', false, /.json$/, 'lazy');
 
 export const root = getSyncLifecycle(rootComponent, options);
+export const expressLaboratoryDashboardHome = getSyncLifecycle(LaboratoryDashboard, options);
 
 export const laboratoryDashboardLink = getSyncLifecycle(
   // t('Laboratory', 'Laboratory')
@@ -49,15 +51,27 @@ export const inprogressLabRequestsTable = getAsyncLifecycle(
   options,
 );
 
+// t('Referred Out', 'Referred tests')
+export const referredOutLabRequestsTable = getAsyncLifecycle(
+  () => import('./lab-tabs/data-table-extensions/referred-lab-requests-table.extension'),
+  options,
+);
+
 // t('Completed', 'Completed')
 export const completedLabRequestsTable = getAsyncLifecycle(
   () => import('./lab-tabs/data-table-extensions/completed-lab-requests-table.extension'),
   options,
 );
 
+// t('Approved', 'Approved Tests')
+export const approvedLabRequestsTable = getAsyncLifecycle(
+  () => import('./lab-tabs/data-table-extensions/approved-lab-requests-table.extension'),
+  options,
+);
+
 // t('Declined tests', 'Declined tests')
 export const declinedLabRequestsTable = getAsyncLifecycle(
-  () => import('./lab-tabs/data-table-extensions/declined-lab-requests-table-extension'),
+  () => import('./lab-tabs/data-table-extensions/declined-lab-requests-table.extension'),
   options,
 );
 
