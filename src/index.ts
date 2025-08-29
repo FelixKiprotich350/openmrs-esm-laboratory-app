@@ -14,7 +14,7 @@ const options = {
 export const importTranslation = require.context('../translations', false, /.json$/, 'lazy');
 
 export const root = getSyncLifecycle(rootComponent, options);
-export const expressLaboratoryDashboardHome = getSyncLifecycle(LaboratoryDashboard, options);
+export const rootLaboratoryDashboard = getSyncLifecycle(LaboratoryDashboard, options);
 
 export const laboratoryDashboardLink = getSyncLifecycle(
   // t('Laboratory', 'Laboratory')
