@@ -16,8 +16,8 @@
       "component": "root"
     },
     {
-      "name": "express-laboratory-dashboard",
-      "component": "expressLaboratoryDashboardHome"
+      "name": "root-laboratory-dashboard",
+      "component": "rootLaboratoryDashboard"
     },
     {
       "name": "laboratory-dashboard-link",
